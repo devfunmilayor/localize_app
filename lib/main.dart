@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:localize_app/app_local.dart';
 import 'package:localize_app/locale_fuc.dart';
 import 'package:localize_app/provider/locale_vm.dart';
+import 'package:localize_app/support_locale.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -25,10 +26,7 @@ class MyApp extends StatelessWidget {
       child: Consumer<AppLanguage>(builder: (context, model, child) {
         return MaterialApp(
           // locale: model.appLocal,
-          supportedLocales: const [
-            Locale('en', 'US'),
-            Locale('ar', ''),
-          ],
+          supportedLocales: L10n.all,
           localizationsDelegates: [
             AppLocalizations.of(context)!.delegate,
             GlobalMaterialLocalizations.delegate,
